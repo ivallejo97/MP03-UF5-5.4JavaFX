@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="538.0" styleClass="background" stylesheets="@../../../../../target/classes/com/example/javafx/styles/estilo1.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafx.controlador.MainController">
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="10.0" prefHeight="380.0" prefWidth="280.0" AnchorPane.bottomAnchor="15.0">
+         <children>
+            <GridPane layoutX="24.0" layoutY="127.0" prefHeight="507.2" prefWidth="354.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="a2" mnemonicParsing="false" prefHeight="151.0" prefWidth="113.0" GridPane.columnIndex="1" />
+                  <Button fx:id="a3" mnemonicParsing="false" prefHeight="151.0" prefWidth="113.0" GridPane.columnIndex="2" />
+                  <Button fx:id="b2" mnemonicParsing="false" prefHeight="151.0" prefWidth="113.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="b3" mnemonicParsing="false" prefHeight="151.0" prefWidth="113.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button id="b1" fx:id="a1" mnemonicParsing="false" prefHeight="151.0" prefWidth="113.0" />
+                  <Button fx:id="b1" mnemonicParsing="false" prefHeight="151.0" prefWidth="113.0" GridPane.rowIndex="1" />
+                  <Button fx:id="c1" mnemonicParsing="false" prefHeight="151.0" prefWidth="113.0" GridPane.rowIndex="2" />
+                  <Button fx:id="c2" mnemonicParsing="false" prefHeight="151.0" prefWidth="113.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button fx:id="c3" mnemonicParsing="false" prefHeight="151.0" prefWidth="113.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+         </children></AnchorPane>
+      <AnchorPane layoutX="316.0" layoutY="22.0" prefHeight="380.0" prefWidth="200.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="315.0" AnchorPane.rightAnchor="25.0">
+         <children>
+            <ImageView fitHeight="380.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@fotos/fotoJX.jpg" />
+               </image>
+            </ImageView>
+
+            <RadioButton fx:id="rb1" layoutX="17.0" layoutY="50.0" mnemonicParsing="false" text="Computer vs Computer" textFill="WHITE" AnchorPane.topAnchor="50.0">
+                <toggleGroup>
+                    <ToggleGroup fx:id="group" />
+                </toggleGroup>
+            </RadioButton>
+
+            <RadioButton fx:id="rb2" layoutX="17.0" layoutY="91.0" mnemonicParsing="false" text="Computer vs Human" textFill="WHITE" AnchorPane.topAnchor="80.0">
+                <toggleGroup>
+                    <fx:reference source="group" />
+                </toggleGroup>
+            </RadioButton>
+
+            <RadioButton fx:id="rb3" layoutX="17.0" layoutY="130.0" mnemonicParsing="false" text="Human vs Human" textFill="WHITE" AnchorPane.topAnchor="110.0">
+                <toggleGroup>
+                    <fx:reference source="group" />
+                </toggleGroup>
+            </RadioButton>
+
+             <Button fx:id="btnJugar" layoutX="28.0" layoutY="213.0" mnemonicParsing="false" onAction="#seleccionarModo" prefHeight="26.0" prefWidth="139.0" text="Start Game" />
+            <Button fx:id="btnEstadisticas" layoutY="350.0" mnemonicParsing="false" onAction="#loadEstadisticas" prefHeight="31.0" prefWidth="200.0" text="Estadísticas" textOverrun="WORD_ELLIPSIS" />
+         </children>
+      </AnchorPane>
+      <MenuBar layoutY="2.0" prefHeight="26.0" prefWidth="538.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="btnCerrar" mnemonicParsing="false" onAction="#cerrarApp" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="btnHelp" mnemonicParsing="false" onAction="#loadHelp" text="About" />
+                  <MenuItem mnemonicParsing="false" onAction="#loadEstadisticas" text="Estadísticas" />
+                  <MenuItem fx:id="btnReiniciarCasillas" mnemonicParsing="false" onAction="#reiniciarCasillas" text="Reiniciar Casillas" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Diseño">
+               <items>
+                  <MenuItem fx:id="btnCambiarDiseño" mnemonicParsing="false" onAction="#cargarNuevoCSS" text="Azul" />
+                  <MenuItem fx:id="btnCambiarDiseño2" mnemonicParsing="false" onAction="#cargarNuevoCSS1" text="Rojo" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>
